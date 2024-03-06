@@ -1,0 +1,150 @@
+../data
+CPU times: user 3 µs, sys: 1 µs, total: 4 µs
+Wall time: 9.78 µs
+Processing 4062 files in ../raw_data/Unzipped...
+Will save to ../data...
+/home/branchedelac/.pyenv/versions/3.10.6/envs/BandIt/lib/python3.10/site-packages/pretty_midi/pretty_midi.py:100: RuntimeWarning: Tempo, Key or Time signature change events found on non-zero tracks.  This is not a valid type 0 or type 1 MIDI file.  Tempo, Key or Time Signature may be wrong.
+  warnings.warn(
+/home/branchedelac/.pyenv/versions/3.10.6/envs/BandIt/lib/python3.10/site-packages/pretty_midi/pretty_midi.py:100: RuntimeWarning: Tempo, Key or Time signature change events found on non-zero tracks.  This is not a valid type 0 or type 1 MIDI file.  Tempo, Key or Time Signature may be wrong.
+  warnings.warn(
+Error for ../raw_data/Unzipped/Nightwish_-_Élan.mid: Could not decode key with 13 sharps and mode 1
+Error for ../raw_data/Unzipped/Nirvana_-_Scentless_Apprentice.mid: data byte must be in range 0..127
+/home/branchedelac/.pyenv/versions/3.10.6/envs/BandIt/lib/python3.10/site-packages/pretty_midi/pretty_midi.py:100: RuntimeWarning: Tempo, Key or Time signature change events found on non-zero tracks.  This is not a valid type 0 or type 1 MIDI file.  Tempo, Key or Time Signature may be wrong.
+  warnings.warn(
+Error for ../raw_data/Unzipped/Nirvana_-_Tourette_s.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Journey_-_Lights.mid: data byte must be in range 0..127
+/home/branchedelac/.pyenv/versions/3.10.6/envs/BandIt/lib/python3.10/site-packages/pretty_midi/pretty_midi.py:100: RuntimeWarning: Tempo, Key or Time signature change events found on non-zero tracks.  This is not a valid type 0 or type 1 MIDI file.  Tempo, Key or Time Signature may be wrong.
+  warnings.warn(
+Error for ../raw_data/Unzipped/Nirvana_-_Son_Of_A_Gun.mid: no MTrk header at start of track
+Error for ../raw_data/Unzipped/Nirvana_-_Heart-Shaped_Box.mid: running status without last_status
+/home/branchedelac/.pyenv/versions/3.10.6/envs/BandIt/lib/python3.10/site-packages/pretty_midi/pretty_midi.py:100: RuntimeWarning: Tempo, Key or Time signature change events found on non-zero tracks.  This is not a valid type 0 or type 1 MIDI file.  Tempo, Key or Time Signature may be wrong.
+  warnings.warn(
+Error for ../raw_data/Unzipped/Journey_-_Any_Way_You_Want_It.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Polly.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Dive.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Rammstein_-_Stripped.mid: Could not decode key with 1 flats and mode 255
+Error for ../raw_data/Unzipped/Nirvana_-_Frances_Farmer_Will_Have_Her_Revenge_On_Seattle.mid: running status without last_status
+Error for ../raw_data/Unzipped/Nirvana_-_Downer.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/The_Beatles_-_There_s_A_Place.mid: Could not decode key with 1 flats and mode 255
+Error for ../raw_data/Unzipped/Journey_-_Lovin_Touchin_Squeezin.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Led_Zeppelin_-_In_the_Evening.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nightwish_-_Feel_For_You.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Deep_Purple_-_Deep_Cascade.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Aaron_Neville_-_Tell_It_Like_It_Is.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Van_Halen_-_Right_Now.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Swap_Meet.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Rob_Zombie_-_Demonoid_Phenomenon.mid: MIDI file has a largest tick of 4295115785, it is likely corrupt
+Error for ../raw_data/Unzipped/Nirvana_-_Dumb.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Mr._Moustache.mid: running status without last_status
+Error for ../raw_data/Unzipped/Nirvana_-_All_Apologies.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Guns_n_Roses_-_Since_I_Don_t_Have_You.mid:
+Error for ../raw_data/Unzipped/Nirvana_-_Drain_You.mid: no MTrk header at start of track
+Error for ../raw_data/Unzipped/Rush_-_Closer_to_the_Heart.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Led_Zeppelin_-_Custard_Pie.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Hairspray_Queen.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Emma_Marrone_-_La_Mi_Cittá.mid: Could not decode key with 16 sharps and mode 0
+Error for ../raw_data/Unzipped/Nirvana_-_Territorial_Pissings.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Smells_Like_Teen_Spirit.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Milk_It.mid: running status without last_status
+Error for ../raw_data/Unzipped/Van_Halen_-_Jamie_s_Cryin.mid:
+Error for ../raw_data/Unzipped/Nirvana_-_Pennyroyal_Tea.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Randy_Newman_-_I_Love_L_A_.mid: MIDI file has a largest tick of 42949772801, it is likely corrupt
+Error for ../raw_data/Unzipped/Nirvana_-_Radio_Friendly_Unit_Shifter.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Lounge_Act.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Mexican_Seafood.mid: running status without last_status
+Error for ../raw_data/Unzipped/Radiohead_-_Climbing_Up_the_Walls.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Radiohead_-_Airbag.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Downer(1).mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Aneurysm.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Bush_-_Glycerine.mid: Could not decode key with 1 flats and mode 255
+Error for ../raw_data/Unzipped/The_Beatles_-_Octopus_s_Garden.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Polly_(New_Wave).mid: running status without last_status
+Error for ../raw_data/Unzipped/Nirvana_-_Turnaround.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nightwish_-_Lagoon.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Nirvana_-_Negative_Creep.mid: no MTrk header at start of track
+Error for ../raw_data/Unzipped/God_Put_A_Smile_Upon_Your_Face_2/God_Put_A_Smile_Upon_Your_Face_2.mid:
+Error for ../raw_data/Unzipped/Nirvana_-_On_A_Plain.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Come_Out_And_Play_3/Come_Out_And_Play_3.mid:
+Error for ../raw_data/Unzipped/Nirvana_-_Been_A_Son.mid: running status without last_status
+Error for ../raw_data/Unzipped/Sam_Cooke_-_Twisting_the_Night_Away.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/This_Velvet_Glove/This_Velvet_Glove.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Pressure/Pressure.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Points_Of_Authority/Points_Of_Authority.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Best_Of_Times_1/Best_Of_Times_1.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Bounce/Bounce.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Chop_Suey/Chop_Suey.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/If_You_Have_To_Ask/If_You_Have_To_Ask.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Nirvana_-_Sliver.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Pushing_Me_Away/Pushing_Me_Away.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Leader_Of_Men_Acoustic_Version/Leader_Of_Men_Acoustic_Version.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Innervision/Innervision.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Pretty_Little_Ditty/Pretty_Little_Ditty.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Twenty_One_2/Twenty_One_2.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Unforgiven2/Unforgiven2.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/John_Paul_Young_-_Love_is_in_the_Air.mid:
+Error for ../raw_data/Unzipped/Radiohead_-_Subterranean_Homesick_Alien.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Boom/Boom.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Nirvana_-_Love_Buzz.mid: no MTrk header at start of track
+Error for ../raw_data/Unzipped/Highway_Song/Highway_Song.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Gone_Away/Gone_Away.mid: MIDI file has a largest tick of 196929468, it is likely corrupt
+Error for ../raw_data/Unzipped/Feeling_This/Feeling_This.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Scar_Tissue_1/Scar_Tissue_1.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Echoes/Echoes.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Chic_N_Stu/Chic_N_Stu.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Bomfunk_MCs_-_Uprocking_Beats.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Tarzan/Tarzan.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Dosed/Dosed.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Ddevil/Ddevil.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Parallel_Universe/Parallel_Universe.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Higher_Ground/Higher_Ground.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/My_Friends/My_Friends.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Suck_My_Kiss/Suck_My_Kiss.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Streamline/Streamline.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Mr_Jack/Mr_Jack.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Metro/Metro.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Parachutes/Parachutes.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Misunderstanding/Misunderstanding.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Toxicity/Toxicity.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/I-E-A-I-A-I-O/I-E-A-I-A-I-O.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Under_The_Bridge/Under_The_Bridge.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Powerslave/Powerslave.mid:
+Error for ../raw_data/Unzipped/Purple_Haze_2/Purple_Haze_2.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Coffee_Shop/Coffee_Shop.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/And_I_Love_Her_2/And_I_Love_Her_2.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Give_I_Away/Give_I_Away.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Naked_In_The_Rain/Naked_In_The_Rain.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Deer_Dance/Deer_Dance.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Lady_Madonna/Lady_Madonna.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Storaged/Storaged.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/X/X.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Blue_Collar_Man_1/Blue_Collar_Man_1.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Cherub_Rock/Cherub_Rock.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Funky_Monks/Funky_Monks.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Stripped/Stripped.mid: Could not decode key with 1 flats and mode 255
+Error for ../raw_data/Unzipped/Scar_Tissue_2/Scar_Tissue_2.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Love_Roller_Coaster/Love_Roller_Coaster.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Suite_Pee/Suite_Pee.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Deep_Kick/Deep_Kick.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Something_2/Something_2.mid:
+Error for ../raw_data/Unzipped/Bubbles/Bubbles.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Fuck_The_System/Fuck_The_System.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Knock_Me_Down/Knock_Me_Down.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Yellow_2/Yellow_2.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Movin_Out_Anthonys_Song/Movin_Out_Anthonys_Song.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Pea/Pea.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/PLUCK/PLUCK.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Amsterdam/Amsterdam.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Science/Science.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Otherside/Otherside.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Somewhere_I_Belong_2/Somewhere_I_Belong_2.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Jet_Pilot/Jet_Pilot.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Marmalade/Marmalade.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Pictures/Pictures.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Lucy_In_The_Sky_With_Diamonds/Lucy_In_The_Sky_With_Diamonds.mid:
+Error for ../raw_data/Unzipped/Fell_In_Love_With_A_Girl/Fell_In_Love_With_A_Girl.mid: MThd not found. Probably not a MIDI file
+Error for ../raw_data/Unzipped/Prison_Song/Prison_Song.mid: data byte must be in range 0..127
+Error for ../raw_data/Unzipped/Bring_Me_To_Life_2/Bring_Me_To_Life_2.mid: data byte must be in range 0..127
+Removing duplicates from ../data...
+Total number of non-duplicate songs with drums and guitar saved: 2196
+
+Done!
