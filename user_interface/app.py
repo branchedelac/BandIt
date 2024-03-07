@@ -31,7 +31,7 @@ with st.form("my_form"):
 
 # TODO Make use of this audio player snippet
 # Do we need to convert the midi file to something else?
-audio_file = open(f'{os.getcwd()}/frontend/Vår.mp3', 'rb')
+audio_file = open(f'{os.getcwd()}/user_interface/Vår.mp3', 'rb')
 audio_bytes = audio_file.read()
 st.audio(audio_bytes, format='mp3')
 
