@@ -1,7 +1,7 @@
-from bandit.ml_logic.preprocessor import preprocess_data
-from bandit.ml_logic.postprocessor import postprocess_prediction
-from bandit.ml_logic.encoder import encode_data
-from bandit.ml_logic.model import load_model
+from ml_logic.preprocessor import preprocess_data
+from ml_logic.postprocessor import postprocess_prediction
+from ml_logic.encoder import encode_data
+from ml_logic.model import load_model
 
 from fastapi import FastAPI
 
