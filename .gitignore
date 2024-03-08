@@ -1,4 +1,10 @@
+# Data
 raw_data/
 test_output/
-.DS_Store
 *tokenizer.json
+
+# Automatically generated files
+.DS_Store
+__pycache__/
+.Zone.Identifier
+.ipynb_checkpoints
