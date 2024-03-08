@@ -1,3 +1,4 @@
 raw_data/
 test_output/
 .DS_Store
+*tokenizer.json
