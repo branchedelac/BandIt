@@ -9,6 +9,7 @@ import IPython
 import glob
 import pandas as pd
 import logging
+from tokenizers import Tokenizer
 
 # Set up logging
 logging.basicConfig(
@@ -23,35 +24,41 @@ def preprocess_data():
     song_list = glob.glob(os.path.join(data_path, "*.mid"))[:20]
     logging.info("Found %s midifiles in folder %s", str(len(song_list)), data_path)
     logging.info("Processing songs...")
-    with open("output.txt", "a") as out_file:
-        for idx, song_path in enumerate(song_list):
-            if idx % 10 == 0:
-                logging.info("Number of songs processed: %s", idx)
+    for idx, song_path in enumerate(song_list):
+        if idx % 10 == 0:
+            logging.info("Number of songs processed: %s", idx)
 
-            # Normalize tempo
-            normalized_midi, song_title = bpm_to_120(song_path)
+        # Normalize tempo
+        normalized_midi, song_title = bpm_to_120(song_path)
 
-            # Extract guitar and drum
-            gd_track_dict = extract_guitar_and_drums(normalized_midi, song_title)
+        # Extract guitar and drum
+        gd_track_dict = extract_guitar_and_drums(normalized_midi, song_title)
 
-            # Split track into bars
-            gd_bars_dict = tracks_to_bars(gd_track_dict)
+        # Split track into bars
+        gd_bars_dict = tracks_to_bars(gd_track_dict)
 
-            # Standardize bar start time
-            guitar_bars_standard = standardize_bars(
-                gd_bars_dict["guitar_bars"], gd_bars_dict["down_beats"]
-            )
-            drum_bars_standard = standardize_bars(
-                gd_bars_dict["drum_bars"], gd_bars_dict["down_beats"]
-            )
+        # Standardize bar start time
+        guitar_bars_standard = standardize_bars(
+            gd_bars_dict["guitar_bars"], gd_bars_dict["down_beats"]
+        )
+        drum_bars_standard = standardize_bars(
+            gd_bars_dict["drum_bars"], gd_bars_dict["down_beats"]
+        )
 
-            #
-            out_file.write(str(gd_bars_dict))
-            out_file.write(str(guitar_bars_standard))
-            out_file.write(str(drum_bars_standard))
+        # Turn bar objects into strings
+        guitar_bars_string = [
+            objects_to_strings(bar) for bar in guitar_bars_standard
+        ]
+        drum_bars_string = [
+            objects_to_strings(bar) for bar in guitar_bars_standard
+        ]
 
+        # Encode using pretrained vocab
+        #encoded_guitars = drum_encoder(guitar_bars_string)
+        #encoded_drums = drum_encoder(drum_bars_string)
 
-
+        print(guitar_bars_string)
+        print(guitar_bars_string)
 
 # Normalize tempo
 def bpm_to_120(midi_file):
@@ -177,17 +184,61 @@ def standardize_bars(list_of_bars, downbeats):
     It gets a list of bars and the list of downbeats as inputs
     and returns a list of bars that all start with time = 1
     """
-
+    std_bars = list_of_bars.copy()
     for i in range(len(list_of_bars)):
         for j in range(len(list_of_bars[i])):
             if i == 0:
-                list_of_bars[0][j].start = list_of_bars[0][j].start / downbeats[1]
-                list_of_bars[0][j].end = list_of_bars[0][j].end / downbeats[1]
+                std_bars[0][j].start = std_bars[0][j].start / downbeats[1]
+                std_bars[0][j].end = std_bars[0][j].end / downbeats[1]
+            else:
+                std_bars[i][j].start = std_bars[i][j].start / downbeats[i]
+                std_bars[i][j].end = std_bars[i][j].end / downbeats[i]
 
-            list_of_bars[i][j].start = list_of_bars[i][j].start / downbeats[i]
-            list_of_bars[i][j].end = list_of_bars[i][j].end / downbeats[i]
+    return std_bars
 
-    return list_of_bars
+
+# Turn bar objects into strings
+def objects_to_strings(list_of_bars):
+    """
+    This Function takes bars that are note objects and
+    converts them to strings for the purpose of tokenization
+    """
+    list_of_strings = [str(bar) for bar in list_of_bars]
+    return list_of_strings
+
+def guitar_encoder(guitar_track):
+    """
+    This function tokenizes a guitar track based on a pre trained guitar tokenizer.
+    The input is a list of strings of guitar bars, the output is a list of
+    corresponding tokens
+    """
+
+    guitar_tokenizer = Tokenizer.from_file("guitar_tokenizer.json")
+    encoded_guitar = []
+    for bar in guitar_track:
+        if str(bar) in list(guitar_tokenizer.get_vocab().keys()):
+            encoded_guitar.append(guitar_tokenizer.get_vocab()[bar])
+        else:
+            encoded_guitar.append("[UNK]")
+    return encoded_guitar
+
+
+def drum_encoder(drum_track):
+    """
+    This function tokenizes a drum track based on a pre trained drums tokenizer.
+    The input is a list of strings of drum bars, the output is a list of
+    corresponding tokens
+    """
+
+    drum_tokenizer = Tokenizer.from_file("drum_tokenizer.json")
+    encoded_drum = []
+    for bar in drum_track:
+        if str(bar) in list(drum_tokenizer.get_vocab().keys()):
+            encoded_drum.append(drum_tokenizer.get_vocab()[bar])
+        else:
+            encoded_drum.append("[UNK]")
+
+    return encoded_drum
 
 
 preprocess_data()
