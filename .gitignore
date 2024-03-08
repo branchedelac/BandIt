@@ -5,6 +5,6 @@ test_output/
 
 # Automatically generated files
 .DS_Store
-*/__pycache__/
-*/.Zone.Identifier
+__pycache__/
+.Zone.Identifier
 .ipynb_checkpoints
