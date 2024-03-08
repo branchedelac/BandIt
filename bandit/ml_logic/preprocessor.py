@@ -241,4 +241,4 @@ def drum_encoder(drum_track):
     return encoded_drum
 
 
-preprocess_data()
+#preprocess_data()
