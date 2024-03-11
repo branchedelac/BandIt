@@ -28,13 +28,8 @@ async def predict(file: UploadFile):
         preprocess_data([midi_file_stream], [file.filename])
         return JSONResponse(content={"message": "MIDI file processed successfully"})
 
+        # Transform the returned midi to wav and play it
+
     except ValueError as e:
         # Return error response if something goes wrong
         return JSONResponse(content={"error": str(e)}, status_code=500)
-
-
-@app.post("/midi-to-wav")
-def midi_to_wav(midi_file):
-    # if we need to transform the audio into wav to play it
-    # we could do this with both input and output
-    return f"Listen to {midi_file} as a song! Ladidadida!"
