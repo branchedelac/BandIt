@@ -1,15 +1,15 @@
 #################### PACKAGE ACTIONS ###################
 run_api:
-	uvicorn bandit.api.app:app
+	uvicorn backend.api.app:app
 
 run_streamlit:
-	-@streamlit run user_interface/app.py
+	-@streamlit run frontend/app.py
 
 run_preprocecss:
-	python -c 'from bandit.model_training.main import preprocess; preprocess()'
+	python -c 'from backend.model_training.main import preprocess; preprocess()'
 
 run_train:
-	python -c 'from bandit.model_training.main import train; train()'
+	python -c 'from backend.model_training.main import train; train()'
 
 run_evaluate:
-	python -c 'from bandit.model_training.main import evaluate; evaluate()'
+	python -c 'from backend.model_training.main import evaluate; evaluate()'
