@@ -17,19 +17,28 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
+data_path = "data"
+test_song_list = glob.glob(os.path.join(data_path, "*.mid"))[:5]
 
 
-def preprocess_data():
-    data_path = "data"
-    song_list = glob.glob(os.path.join(data_path, "*.mid"))[:20]
+def preprocess_data(song_list: list, titles: list = []):
     logging.info("Found %s midifiles in folder %s", str(len(song_list)), data_path)
     logging.info("Processing songs...")
-    for idx, song_path in enumerate(song_list):
+    for idx, song in enumerate(song_list):
         if idx % 10 == 0:
             logging.info("Number of songs processed: %s", idx)
 
+        # Get the title from filepath or argument
+        if not titles:
+            song_title = os.path.splitext(os.path.basename(song))[0]
+        else:
+            song_title = titles[idx]
+
+        # Initialize pretty MIDI object
+        song_midi = pretty_midi.PrettyMIDI(song)
+
         # Normalize tempo
-        normalized_midi, song_title = bpm_to_120(song_path)
+        normalized_midi = bpm_to_120(song_midi)
 
         # Extract guitar and drum
         gd_track_dict = extract_guitar_and_drums(normalized_midi, song_title)
@@ -46,29 +55,24 @@ def preprocess_data():
         )
 
         # Turn bar objects into strings
-        guitar_bars_string = [
-            objects_to_strings(bar) for bar in guitar_bars_standard
-        ]
-        drum_bars_string = [
-            objects_to_strings(bar) for bar in guitar_bars_standard
-        ]
+        guitar_bars_string = [objects_to_strings(bar) for bar in guitar_bars_standard]
+        drum_bars_string = [objects_to_strings(bar) for bar in guitar_bars_standard]
 
         # Encode using pretrained vocab
-        #encoded_guitars = drum_encoder(guitar_bars_string)
-        #encoded_drums = drum_encoder(drum_bars_string)
+        # encoded_guitars = drum_encoder(guitar_bars_string)
+        # encoded_drums = drum_encoder(drum_bars_string)
 
         print(guitar_bars_string)
         print(guitar_bars_string)
+
 
 # Normalize tempo
-def bpm_to_120(midi_file):
+def bpm_to_120(mid):
     """
     This function evens out the tempo throuout the song to be 120 BPM,
     even if there are tempo changes. It gets a midi file as an input
     and outputs a modified pretty_midi object and the song title as a string.
     """
-
-    mid = pretty_midi.PrettyMIDI(midi_file)
 
     tempo = mid.get_tempo_changes()
     num_of_changes = len(tempo[0])
@@ -89,9 +93,7 @@ def bpm_to_120(midi_file):
 
     mid.adjust_times(old_times, new_times)
 
-    song_title = os.path.splitext(os.path.basename(midi_file))[0]
-
-    return mid, song_title
+    return mid
 
 
 # TODO Extract guitar and drum
@@ -206,6 +208,7 @@ def objects_to_strings(list_of_bars):
     list_of_strings = [str(bar) for bar in list_of_bars]
     return list_of_strings
 
+
 def guitar_encoder(guitar_track):
     """
     This function tokenizes a guitar track based on a pre trained guitar tokenizer.
@@ -241,4 +244,4 @@ def drum_encoder(drum_track):
     return encoded_drum
 
 
-preprocess_data()
+# preprocess_data()
