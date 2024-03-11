@@ -1,6 +1,7 @@
 # Data
 raw_data/
 test_output/
+logs/
 *tokenizer.json
 
 # Automatically generated files
