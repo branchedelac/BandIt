@@ -2,10 +2,18 @@ numpy
 pandas
 mido
 pygame
-pretty_midi
 matplotlib
+
+# Audio
 librosa
 fluidsynth
+essentia
+librosa
+pretty_midi
+midi2audio
+
+# Modelling
+transformers
 
 # API
 python-multipart
