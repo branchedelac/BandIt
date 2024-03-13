@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
+st.write("hi")
 st.set_page_config(
     page_title="BandIt",  # => Quick reference - Streamlit
     page_icon="🎸",
