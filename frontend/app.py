@@ -54,9 +54,9 @@ with st.form("upload"):
 if submitted:
     with st.spinner("Processing your file... 🎶"):
         try:
-            response = requests.request("POST", f"{dev_url}/predict-progressive", files={"file": file})
+            response = requests.request("POST", f"{dev_url}/predict-progressive/", files={"file": file})
         except Exception:
-            response = requests.request("POST", f"{prod_url}/predict-progressive", files={"file": file})
+            response = requests.request("POST", f"{prod_url}/predict-progressive/", files={"file": file})
     st.success('Processing complete! 🎉')
 
     # Show the result!
