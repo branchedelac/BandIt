@@ -23,7 +23,7 @@ def evaluate():
     print("Gonna get evaluating now! Fingers crossed!")
 
 
-def predict_with_pop2piano(midi_file, title):
+def predict_with_pop2piano(midi_path, title):
     """Given a midi as a BytesIO object, returns a PrettyMIDI object with a drum arrangement."""
 
     # Load model
@@ -31,16 +31,11 @@ def predict_with_pop2piano(midi_file, title):
     processor = Pop2PianoProcessor.from_pretrained("sweetcocoa/pop2piano")
 
     # Define paths for temporary storage
-    temp_midi_path = os.path.join(temp_data_folder, f"{title}.mid")
     temp_wav_path = os.path.join(temp_data_folder, f"{title}.wav")
-
-    midi = pretty_midi.PrettyMIDI(midi_file, title)
-
-    midi.write(temp_midi_path)
 
     # Save midi as wav to use with model
     fs = FluidSynth()
-    fs.midi_to_audio(temp_midi_path, temp_wav_path)
+    fs.midi_to_audio(midi_path, temp_wav_path)
 
     # Load wav
     audio, sr = librosa.load(

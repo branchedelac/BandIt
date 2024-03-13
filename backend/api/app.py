@@ -6,8 +6,11 @@ from backend.main import predict_with_pop2piano
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI, UploadFile
 import io
+import os
+import shutil
 
 app = FastAPI()
+temp_data_folder = "backend/temp_data"
 
 
 @app.get("/")
@@ -39,13 +42,12 @@ async def predict(file: UploadFile):
 @app.post("/predict-progressive/")
 async def predict(file: UploadFile):
     try:
-        ### Receiving and decoding the image
-        content = await file.read()
-        # Convert the bytes content into a file-like object
-        midi_file_stream = io.BytesIO(content)
         # Do something with the parsed MIDI data here
+        file_path = os.path.join(temp_data_folder, file.filename)
+        with open(file_path, "wb") as midi_file:
+            shutil.copyfileobj(file.file, midi_file)
         title = file.filename[:-4]
-        output = predict_with_pop2piano(midi_file_stream, title)
+        output = predict_with_pop2piano(file_path, title)
 
         return JSONResponse(content={"message": "MIDI file processed successfully"})
 
