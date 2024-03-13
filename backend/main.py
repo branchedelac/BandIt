@@ -31,7 +31,7 @@ def predict_with_pop2piano(midi_path):
     processor = Pop2PianoProcessor.from_pretrained("sweetcocoa/pop2piano")
 
     # Define paths for temporary storage
-    temp_wav_path = os.path.join(temp_data_folder, f"guitar.wav")
+    temp_wav_path = os.path.join(temp_data_folder, "guitar.wav")
 
     # Save midi as wav to use with model
     fs = FluidSynth()
