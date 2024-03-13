@@ -2,17 +2,24 @@ import streamlit as st
 import requests
 import numpy as np
 import os
+from dotenv import load_dotenv
 
-temp_data_folder = os.path.join(os.getcwd(), "backend/temp_data")
-dev_url = "http://127.0.0.1:8000"
-prod_url = "https://bandit-ydlcssklqq-ew.a.run.app"
-
+load_dotenv()
 
 st.set_page_config(
     page_title="BandIt",  # => Quick reference - Streamlit
     page_icon="🎸",
     layout="centered",  # wide
 )
+
+temp_data_folder = os.path.join(os.getcwd(), "backend/temp_data")
+
+if os.environ.get("MODE") == "PROD":
+    base_url = os.environ.get("PROD_URL")
+else:
+    print("Development mode! Working locally...")
+    base_url = os.environ.get("DEV_URL")
+
 
 CSS = """
 @import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
@@ -53,10 +60,8 @@ with st.form("upload"):
 
 if submitted:
     with st.spinner("Processing your file... 🎶"):
-        try:
-            response = requests.request("POST", f"{dev_url}/predict-progressive/", files={"file": file})
-        except Exception:
-            response = requests.request("POST", f"{prod_url}/predict-progressive/", files={"file": file})
+        response = requests.request("POST", f"{base_url}/predict-progressive/", files={"file": file})
+
     st.success('Processing complete! 🎉')
 
     # Show the result!
