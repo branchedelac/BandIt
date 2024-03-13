@@ -1,0 +1,21 @@
+numpy
+pandas
+mido
+pygame
+matplotlib
+
+# Audio
+librosa
+fluidsynth
+essentia
+librosa
+pretty_midi
+midi2audio
+resampy
+
+# API
+python-multipart
+fastapi
+uvicorn
+python-dotenv
+requests
