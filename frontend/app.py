@@ -66,7 +66,7 @@ if submitted:
     st.success('Processing complete! 🎉')
 
     # Show the result!
-    if response.status_code == 200:
+    if response.status_code < 400:
         st.write(f"**Drum track successfully generated for {file.name}!**")
         st.write("Listen to your new drum arrangement below!")
         audio_file = open(
