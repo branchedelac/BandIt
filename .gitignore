@@ -5,8 +5,17 @@ logs/
 *tokenizer.json
 temp_data/
 
-# Automatically generated files
+# Configuration
+.env
+.env.yaml
+
+# OS generated files
 .DS_Store
-__pycache__/
-.Zone.Identifier
-.ipynb_checkpoints
+__MACOSX
+
+# Jupiter Notebook
+.pytest_cache
+__pycache__
+*checkpoint.ipynb
+*.ipynb_checkpoints
+*.Zone.Identifier

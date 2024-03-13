@@ -23,7 +23,7 @@ def evaluate():
     print("Gonna get evaluating now! Fingers crossed!")
 
 
-def predict_with_pop2piano(midi_path, title):
+def predict_with_pop2piano(midi_path):
     """Given a midi as a BytesIO object, returns a PrettyMIDI object with a drum arrangement."""
 
     # Load model
@@ -31,7 +31,7 @@ def predict_with_pop2piano(midi_path, title):
     processor = Pop2PianoProcessor.from_pretrained("sweetcocoa/pop2piano")
 
     # Define paths for temporary storage
-    temp_wav_path = os.path.join(temp_data_folder, f"{title}.wav")
+    temp_wav_path = os.path.join(temp_data_folder, "guitar.wav")
 
     # Save midi as wav to use with model
     fs = FluidSynth()
@@ -58,11 +58,11 @@ def predict_with_pop2piano(midi_path, title):
     tokenizer_output.instruments[0].is_drum = True
 
     # Save new drums as midi
-    tokenizer_output.write(os.path.join(temp_data_folder, f"{title}_drums.mid"))
+    tokenizer_output.write(os.path.join(temp_data_folder, f"drums.mid"))
     # Save drums as wav
     fs.midi_to_audio(
-        os.path.join(temp_data_folder, f"{title}_drums.mid"),
-        os.path.join(temp_data_folder, f"{title}_drums.wav"),
+        os.path.join(temp_data_folder, "drums.mid"),
+        os.path.join(temp_data_folder, "drums.wav"),
     )
 
     return tokenizer_output
