@@ -43,11 +43,11 @@ async def predict(file: UploadFile):
 async def predict(file: UploadFile):
     try:
         # Do something with the parsed MIDI data here
-        file_path = os.path.join(temp_data_folder, file.filename)
+        file_path = os.path.join(temp_data_folder, "guitar.mid")
         with open(file_path, "wb") as midi_file:
             shutil.copyfileobj(file.file, midi_file)
         title = file.filename[:-4]
-        output = predict_with_pop2piano(file_path, title)
+        predict_with_pop2piano(os.path.join(temp_data_folder, f"{title}_drum.mid"))
 
         return JSONResponse(content={"message": "MIDI file processed successfully"})
 

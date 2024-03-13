@@ -14,6 +14,9 @@ midi2audio
 
 # Modelling
 transformers
+torch
 
 # API
 python-multipart
+fastapi
+uvicorn
