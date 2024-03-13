@@ -61,7 +61,7 @@ with st.form("upload"):
 
 if submitted:
     with st.spinner("Processing your file... 🎶"):
-        response = requests.request("POST", f"{base_url}/predict-progressive", files={"file": file})
+        response = requests.post(f"{base_url}/predict-progressive", files={"file": file})
 
     st.success('Processing complete! 🎉')
 
