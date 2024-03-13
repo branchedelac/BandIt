@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-st.write("hi")
+
 st.set_page_config(
     page_title="BandIt",  # => Quick reference - Streamlit
     page_icon="🎸",
@@ -61,7 +61,7 @@ with st.form("upload"):
 
 if submitted:
     with st.spinner("Processing your file... 🎶"):
-        response = requests.post(f"{base_url}/predict-progressive", files={"file": file})
+        response = requests.post(f"{base_url}/predict-progressive/", files={"file": file})
 
     st.success('Processing complete! 🎉')
 
