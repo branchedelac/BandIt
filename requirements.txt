@@ -21,3 +21,4 @@ torch
 python-multipart
 fastapi
 uvicorn
+dotenv
