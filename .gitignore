@@ -3,6 +3,7 @@ raw_data/
 test_output/
 logs/
 *tokenizer.json
+temp_data/
 
 # Automatically generated files
 .DS_Store
