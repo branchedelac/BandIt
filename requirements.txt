@@ -11,6 +11,7 @@ essentia
 librosa
 pretty_midi
 midi2audio
+resampy
 
 # Modelling
 transformers
