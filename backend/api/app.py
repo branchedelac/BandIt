@@ -3,7 +3,7 @@ from backend.ml_logic.postprocessor import postprocess_prediction
 from backend.ml_logic.encoder import encode_data
 from backend.ml_logic.model import load_model
 from backend.main import predict_with_pop2piano
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 from fastapi import FastAPI, UploadFile
 import io
 import os
@@ -45,10 +45,9 @@ async def predict(file: UploadFile):
         file_path = os.path.join(temp_data_folder, "guitar.mid")
         with open(file_path, "wb") as midi_file:
             shutil.copyfileobj(file.file, midi_file)
-        title = file.filename[:-4]
-        predict_with_pop2piano(file_path)
+        output = predict_with_pop2piano(file_path)
 
-        return JSONResponse(content={"message": "MIDI file processed successfully"})
+        return FileResponse(output["wav"])
 
     except ValueError as e:
         # Return error response if something goes wrong

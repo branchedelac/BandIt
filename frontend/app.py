@@ -16,7 +16,6 @@ temp_data_folder = os.path.join(os.getcwd(), "backend/temp_data")
 
 if os.environ.get("MODE") == "PROD":
     base_url = os.environ.get("PROD_URL")
-    st.write(base_url)
 else:
     base_url = os.environ.get("DEV_URL")
     print("Development mode! Working locally...", base_url)
@@ -61,29 +60,24 @@ with st.form("upload"):
 
 if submitted:
     with st.spinner("Processing your file... 🎶"):
-        response = requests.post(f"{base_url}/predict-progressive", files={"file": file})
+        response = requests.post(f"{base_url}/predict-progressive/", files={"file": file})
 
     st.success('Processing complete! 🎉')
 
     # Show the result!
     if response.status_code < 400:
+        drum_files = response.content
         st.write(f"**Drum track successfully generated for {file.name}!**")
         st.write("Listen to your new drum arrangement below!")
-        audio_file = open(
-            os.path.join(temp_data_folder, "drums.wav"), "rb"
-        )
-        audio_bytes = audio_file.read()
+        audio_bytes = drum_files
         st.audio(audio_bytes, format="wav")
-
         st.write(f"Download your drum arrangement as a midi file!")
-        with open(
-            os.path.join(temp_data_folder, "drums.mid"), "rb"
-        ) as new_midi:
-            downloaded = st.download_button(
-                label="Download",
-                data=new_midi,
-                file_name=f"{file.name[:-4]}_drums.mid",
-                mime="audio/midi"
-            )
+
+        downloaded = st.download_button(
+            label="Download",
+            data=drum_files,
+            file_name=f"{file.name[:-4]}_drums.mid",
+            mime="audio/midi"
+        )
     else:
         st.error(f"Something went wrong! Status: {response.status_code}")
