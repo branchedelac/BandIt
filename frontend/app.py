@@ -4,7 +4,7 @@ import numpy as np
 import os
 
 temp_data_folder = os.path.join(os.getcwd(), "backend/temp_data")
-dev_url = "http://127.0.0.1:8000/predict-progressive"
+dev_url = "http://127.0.0.1:8000"
 prod_url = "https://bandit-ydlcssklqq-ew.a.run.app"
 
 
@@ -54,9 +54,9 @@ with st.form("upload"):
 if submitted:
     with st.spinner("Processing your file... 🎶"):
         try:
-            response = requests.request("POST", dev_url, files={"file": file})
+            response = requests.request("POST", f"{dev_url}/predict-progressive", files={"file": file})
         except Exception:
-            response = requests.request("POST", prod_url, files={"file": file})
+            response = requests.request("POST", f"{prod_url}/predict-progressive", files={"file": file})
     st.success('Processing complete! 🎉')
 
     # Show the result!
