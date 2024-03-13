@@ -4,6 +4,10 @@ import numpy as np
 import os
 
 temp_data_folder = os.path.join(os.getcwd(), "backend/temp_data")
+dev_url = "http://127.0.0.1:8000/predict-progressive"
+prod_url = "https://bandit-ydlcssklqq-ew.a.run.app"
+
+
 st.set_page_config(
     page_title="BandIt",  # => Quick reference - Streamlit
     page_icon="🎸",
@@ -48,9 +52,11 @@ with st.form("upload"):
     submitted = st.form_submit_button("Upload file")
 
 if submitted:
-    url = "http://127.0.0.1:8000/predict-progressive"
     with st.spinner("Processing your file... 🎶"):
-        response = requests.request("POST", url, files={"file": file})
+        try:
+            response = requests.request("POST", dev_url, files={"file": file})
+        except Exception:
+            response = requests.request("POST", prod_url, files={"file": file})
     st.success('Processing complete! 🎉')
 
     # Show the result!
@@ -58,14 +64,14 @@ if submitted:
         st.write(f"**Drum track successfully generated for {file.name}!**")
         st.write("Listen to your new drum arrangement below!")
         audio_file = open(
-            os.path.join(temp_data_folder, f"{file.name[:-4]}_drums.wav"), "rb"
+            os.path.join(temp_data_folder, "drums.wav"), "rb"
         )
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format="wav")
 
         st.write(f"Download your drum arrangement as a midi file!")
         with open(
-            os.path.join(temp_data_folder, f"{file.name[:-4]}_drums.mid"), "rb"
+            os.path.join(temp_data_folder, "drums.mid"), "rb"
         ) as new_midi:
             downloaded = st.download_button(
                 label="Download",
