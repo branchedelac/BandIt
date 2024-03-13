@@ -16,9 +16,10 @@ temp_data_folder = os.path.join(os.getcwd(), "backend/temp_data")
 
 if os.environ.get("MODE") == "PROD":
     base_url = os.environ.get("PROD_URL")
+    st.write(base_url)
 else:
-    print("Development mode! Working locally...")
     base_url = os.environ.get("DEV_URL")
+    print("Development mode! Working locally...", base_url)
 
 
 CSS = """
@@ -60,7 +61,7 @@ with st.form("upload"):
 
 if submitted:
     with st.spinner("Processing your file... 🎶"):
-        response = requests.request("POST", f"{base_url}/predict-progressive/", files={"file": file})
+        response = requests.request("POST", f"{base_url}/predict-progressive", files={"file": file})
 
     st.success('Processing complete! 🎉')
 
