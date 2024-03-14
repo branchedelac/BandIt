@@ -62,23 +62,21 @@ if submitted:
     with st.spinner("Processing your file... 🎶"):
         response = requests.post(f"{base_url}/predict-progressive/", files={"file": file})
 
-    st.success('Processing complete! 🎉')
-
     # Show the result!
     if response.status_code < 400:
         drum_files = response.content
         # Extract content
         zipped_drums = zipfile.ZipFile(io.BytesIO(drum_files))
-        wav_file = zipped_drums.read('drums.wav')
-        wav_file = zipped_drums.read('guitar_drums_combined.wav')
 
-        st.write(f"**Drum track successfully generated for {file.name}!**")
+        st.success(f"**Drum track successfully generated for {file.name}!** 🎉")
 
         st.write("Listen to your new drum arrangement below!")
-        st.audio(wav_file, format="wav")
+        drum_wav_file = zipped_drums.read('drums.wav')
+        st.audio(drum_wav_file, format="wav")
 
         st.write("And this is what the drum track sounds together with the guitar track!")
-        st.audio(wav_file, format="wav")
+        drum_wav_file = zipped_drums.read('guitar_drums_combined.wav')
+        st.audio(drum_wav_file, format="wav")
 
         st.write(f"Download the midi and wav representations of your drum arrangement!")
 
