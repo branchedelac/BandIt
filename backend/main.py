@@ -65,7 +65,15 @@ def predict_with_pop2piano(midi_path):
         os.path.join(temp_data_folder, "drums.wav"),
     )
 
-    return tokenizer_output
+    midi_file = os.path.join(temp_data_folder, "drums.mid")
+    wav_file = os.path.join(temp_data_folder, "drums.wav")
+
+    drum_files = {
+        "midi": midi_file,
+        "wav": wav_file
+    }
+
+    return drum_files
 
 
 if __name__ == "__main__":

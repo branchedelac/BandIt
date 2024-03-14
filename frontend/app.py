@@ -3,6 +3,8 @@ import requests
 import numpy as np
 import os
 from dotenv import load_dotenv
+import zipfile
+import io
 
 load_dotenv()
 
@@ -12,11 +14,8 @@ st.set_page_config(
     layout="centered",  # wide
 )
 
-temp_data_folder = os.path.join(os.getcwd(), "backend/temp_data")
-
 if os.environ.get("MODE") == "PROD":
     base_url = os.environ.get("PROD_URL")
-    st.write(base_url)
 else:
     base_url = os.environ.get("DEV_URL")
     print("Development mode! Working locally...", base_url)
@@ -67,23 +66,22 @@ if submitted:
 
     # Show the result!
     if response.status_code < 400:
+        drum_files = response.content
+        # Extract content
+        zipped_drums = zipfile.ZipFile(io.BytesIO(drum_files))
+        wav_file = zipped_drums.read('drums.wav')
+
         st.write(f"**Drum track successfully generated for {file.name}!**")
         st.write("Listen to your new drum arrangement below!")
-        audio_file = open(
-            os.path.join(temp_data_folder, "drums.wav"), "rb"
-        )
-        audio_bytes = audio_file.read()
-        st.audio(audio_bytes, format="wav")
 
-        st.write(f"Download your drum arrangement as a midi file!")
-        with open(
-            os.path.join(temp_data_folder, "drums.mid"), "rb"
-        ) as new_midi:
-            downloaded = st.download_button(
-                label="Download",
-                data=new_midi,
-                file_name=f"{file.name[:-4]}_drums.mid",
-                mime="audio/midi"
-            )
+        st.audio(wav_file, format="wav")
+        st.write(f"Download the midi and wav representations of your drum arrangement!")
+
+        downloaded = st.download_button(
+            label="Download",
+            data=drum_files,
+            file_name=f"{file.name[:-4]}_drums.zip",
+            mime="audio/midi"
+        )
     else:
         st.error(f"Something went wrong! Status: {response.status_code}")

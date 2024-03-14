@@ -15,4 +15,4 @@ run_evaluate:
 	python -c 'from backend.main import evaluate; evaluate()'
 
 run_predict_with_pop2piano:
-	python -c 'from backend.main import predict_with_pop2piano; predict_with_pop2piano("data/Janis_Joplin_-_Piece_Of_My_Heart.mid", "Janis_Joplin_-_Piece_Of_My_Heart")'
+	python -c 'from backend.main import predict_with_pop2piano; predict_with_pop2piano("data/Janis_Joplin_-_Piece_Of_My_Heart.mid")'
