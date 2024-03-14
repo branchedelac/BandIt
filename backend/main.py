@@ -65,12 +65,26 @@ def predict_with_pop2piano(midi_path):
         os.path.join(temp_data_folder, "drums.wav"),
     )
 
+    # Combine drum and guitar into one midi file
+    combined_midi = pretty_midi.PrettyMIDI(midi_path)
+    combined_midi.instruments.append(tokenizer_output.instruments[0])
+    combined_midi.write(os.path.join(temp_data_folder, f"combined.mid"))
+    # Save drums as wav
+    fs.midi_to_audio(
+        os.path.join(temp_data_folder, "combined.mid"),
+        os.path.join(temp_data_folder, "combined.wav"),
+    )
+
     midi_file = os.path.join(temp_data_folder, "drums.mid")
     wav_file = os.path.join(temp_data_folder, "drums.wav")
+    combined_wav_file = os.path.join(temp_data_folder, "combined.wav")
 
     drum_files = {
         "midi": midi_file,
-        "wav": wav_file
+        "wav": wav_file,
+        "wav_guitar": temp_wav_path,
+        "wav_combined": combined_wav_file
+
     }
 
     return drum_files

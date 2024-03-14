@@ -70,11 +70,16 @@ if submitted:
         # Extract content
         zipped_drums = zipfile.ZipFile(io.BytesIO(drum_files))
         wav_file = zipped_drums.read('drums.wav')
+        wav_file = zipped_drums.read('guitar_drums_combined.wav')
 
         st.write(f"**Drum track successfully generated for {file.name}!**")
-        st.write("Listen to your new drum arrangement below!")
 
+        st.write("Listen to your new drum arrangement below!")
         st.audio(wav_file, format="wav")
+
+        st.write("And this is what the drum track sounds together with the guitar track!")
+        st.audio(wav_file, format="wav")
+
         st.write(f"Download the midi and wav representations of your drum arrangement!")
 
         downloaded = st.download_button(
