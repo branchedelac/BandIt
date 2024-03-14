@@ -1,7 +1,6 @@
+# General
 numpy
 pandas
-mido
-pygame
 matplotlib
 
 # Audio
@@ -12,6 +11,8 @@ librosa
 pretty_midi
 midi2audio
 resampy
+mido
+pygame
 
 # API
 python-multipart
@@ -19,3 +20,7 @@ fastapi
 uvicorn
 python-dotenv
 requests
+
+# Modelling
+transformers
+torch
