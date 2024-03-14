@@ -82,9 +82,7 @@ def predict_with_pop2piano(midi_path):
     drum_files = {
         "midi": midi_file,
         "wav": wav_file,
-        "wav_guitar": temp_wav_path,
         "wav_combined": combined_wav_file
-
     }
 
     return drum_files

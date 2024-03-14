@@ -53,7 +53,6 @@ async def predict(file: UploadFile):
                      compresslevel=9) as zf:
             zf.write(output["midi"], "drums.mid")
             zf.write(output["wav"], "drums.wav")
-            zf.write(output["wav_guitar"], "original_guitar.wav")
             zf.write(output["wav_combined"], "guitar_drums_combined.wav")
 
         return FileResponse(zipped_path)
