@@ -1,4 +1,4 @@
-![logo](http://url/to/img.png)
+![logo](./logo.png)
 
 # BandIt
 The goal of the BandIt project is to train a model that allow music creators to generate custom musical arrangements in different instruments for a given song, based on a recording of one instrument. In this first implementation, we are focusing on guitar as the input instrument, and drums as the output instrument. We have  limited our training dataset to songs within the rockc genre.
