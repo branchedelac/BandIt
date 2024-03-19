@@ -7,6 +7,8 @@ Exploring existing and custom transformer models, we are treating the task of ge
 
 The code can be run locally using streamlit and uvicorn. The requirements.txt file contains requirements for the frontend, the requirements_prod.txt requirements for the backend. The Makefile includes some shorthand commands for this.
 
+![web interface](./bandit_gui.png)
+
 ## Repo structure
 ### data
 Contains midi (.mid) files.
